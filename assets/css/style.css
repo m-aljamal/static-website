@@ -1,0 +1,424 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+@media (min-width: 400px) and (max-width: 767px) {
+  .container {
+    width: 400px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .container {
+    width: 600px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .container {
+    width: 900px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1200px;
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+/* Start Header */
+#menu a {
+  text-decoration: none;
+  color: #232323;
+
+  transition: color 0.3s ease;
+}
+
+#menu a:hover {
+  color: tomato;
+}
+
+#menuToggle {
+  display: block;
+  position: relative;
+  top: 30px;
+  left: 30px;
+
+  z-index: 1;
+
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle input {
+  display: block;
+  width: 30px;
+  height: 50px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+
+  cursor: pointer;
+
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span {
+  display: block;
+  width: 30px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+
+  background: #cdcdcd;
+  border-radius: 3px;
+
+  z-index: 1;
+
+  transform-origin: 4px 0px;
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+
+#menuToggle span:first-child {
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu {
+  height: 2405px;
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+#menu li {
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ ul {
+  transform: none;
+}
+
+.header {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+
+  height: 5em;
+}
+.header h1 {
+  font-family: "Pacifico", cursive;
+  font-size: 2.3em;
+  font-weight: 300;
+  color: #f6755e;
+}
+.header button {
+  margin: 20px;
+  height: 3em;
+  width: 7em;
+  background-color: #ffffff;
+  border: 0.5px solid rgb(105, 105, 105, 0.3);
+  border-radius: 5px;
+  color: gray;
+  font-weight: bold;
+  font-size: 15px;
+}
+@media (max-width: 990px){
+  .header button {
+    display: none;
+  }
+
+  .header h1 {
+   margin: 0 auto !important;
+  }
+}
+/* End Header */
+
+/* Start cover */
+.cover {
+  background: url("../../images/banner.jpg");
+  background-position: center top;
+  height: 680px;
+  text-align: center;
+}
+.cover h2 {
+  color: #25a2c3;
+  font-size: 50px;
+  padding-top: 220px;
+}
+.cover p {
+  padding-top: 20px;
+  color: gray;
+  font-size: 20px;
+  line-height: 30px;
+}
+.cover button {
+  margin-top: 30px;
+  height: 3.5em;
+  width: 13em;
+  background-color: rgb(246, 117, 94);
+  border: 0.5px solid rgb(246, 117, 94, 0.3);
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+}
+/* End cover */
+
+/* Start articals */
+.container {
+  justify-content: center;
+  display: flex;
+  margin: 100px auto;
+}
+
+.container .left-side{
+  margin-right: 75px
+}
+
+.container .right-side{
+  margin-left: 75px
+}
+
+.left-side h2,  .right-side h2 {
+  color: #25a2c3;
+  margin-bottom: 25px;
+  font-size: 1.25em;
+}
+
+
+.left-side h2{
+  text-align: end;
+}
+.left-side p,  .right-side p {
+line-height: 1.5;
+color: gray;
+
+}
+.left-side p:first-of-type,  .right-side p:first-of-type {
+  margin-bottom: 100px
+}
+ .image img {
+  border-radius: 100%;
+  width: 100%;
+  display: block;
+  
+}
+
+@media (max-width: 990px){
+  .container {
+display: inline-block;
+text-align: center;
+width: 100%;
+
+  }
+  .container .left-side{
+    margin-right: 0px;
+  
+  }
+  .left-side p, .right-side p{
+    margin: 20px !important;
+  }
+  .container .right-side{
+    margin-left: 0px;
+    margin: 20px !important;
+    
+  }
+  .left-side h2{
+    text-align: center;
+  }
+  .image img {
+    margin: 0 auto;
+    width: 40vw;
+  }
+  .container {
+    
+    margin: 50px auto;
+  }
+}
+
+/* End articals */
+
+/* Start about us */
+.about-us {
+  width: 100%;
+  height: 350px;
+  background-color: rgb(246, 117, 94);
+  color: white;
+}
+.about-us h2{
+ padding-top: 100px;
+ padding-bottom: 30px;
+ font-size: 1.75em;
+}
+.about-us q{
+  font-style: italic;
+  font-size: 1em;
+  color: #e5e3e3;
+}
+.about-us h3{
+  margin-top: 30px;
+  font-size:1em;
+}
+
+.about-us p{
+  margin-top: 10px;
+  font-size:0.75em;
+}
+/* End about us */
+
+/* Start cards */
+.cards {
+  display: flex;
+  justify-content: center
+}
+ .midale{
+margin: 0 50px 0 50px;
+}
+.card-content{
+  width: 40%;
+  border: 1px solid #dee1e3;
+  border-radius: 4px;
+}
+.card-content h2{
+  color: #25a2c3;
+  margin: 20px 15px 20px 15px;
+  font-size: 1.2em;
+}
+.card-content p{
+  margin: 20px 15px 20px 15px;
+  line-height: 1.5;
+  color: gray;
+  font-size: 0.9em
+}
+.card-content img{
+  width: 100%;
+}
+
+@media (max-width: 990px){
+  .cards {
+display: block;
+
+  }
+  .card-content{ 
+  margin: 0 auto;
+  width: 60%;
+  }
+  .midale{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    }
+}
+/* End cards */
+
+/* Start footer */
+.footer {
+  background-color: #00a7d6;
+  padding: 75px 0 75px 0;
+  color: #d8d8d8;
+}
+.footer h2{
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.actions {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+.actions li {
+  margin: 40px;
+}
+.actions li a {
+  text-decoration: none;
+  color: #d8d8d8;
+}
+.footer hr {
+  width: 500px;
+  height: 0.2px;
+  border: none;
+  margin: 0 auto;
+  background-color: white;
+}
+.footer p {
+  margin-top: 25px;
+  font-size: 0.7em;
+}
+.footer ul li i {
+  margin-right: 5px;
+  color: rgb(246, 117, 94);
+}
+@media (max-width: 990px){
+  .actions{
+    display: block;
+  }
+  .actions li {
+    margin: 15px;
+  }
+}
+/* end footer */
