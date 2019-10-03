@@ -201,7 +201,7 @@ body {
 
 /* Start cover */
 .cover {
-  background: url("../../images/banner.jpg");
+  background: url('./images/banner.jpg');
   background-position: center top;
   height: 680px;
   text-align: center;
